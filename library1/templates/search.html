@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block style %}
+<style>
+    h3
+    {
+    color:black;
+    }
+</style>
+  {% endblock %}
+{% block content %}
+<div class="container w-75 mx-auto p-5 mt-5 text-center fs-5 border border-3 border-secondary rounded-4">
+
+    <h3>Search Book Details</h3>
+    {% if book %}
+     <table class="table table-bordered">
+            <tr>
+                <th>Cover</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Pages</th>
+                <th>Language</th>
+
+            </tr>
+            {% for i in book %}
+            <tr>
+                <td><img src="{{i.image.url}}" height="100px" width="100px"></td>
+                <td>{{i.title}}</td>
+                <td>{{i.author}}</td>
+                <td>{{i.price}}</td>
+                <td>{{i.pages}}</td>
+
+            </tr>
+            {% endfor %}
+
+        </table>
+    {% else %}
+    <h2>No search Results </h2>
+
+{% endif %}
+
+</div>
+{% endblock %}
